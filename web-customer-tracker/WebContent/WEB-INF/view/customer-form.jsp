@@ -39,7 +39,16 @@
 					</tr>
 					<tr>
 						<td><label>Email:</label></td>
-						<td><form:input path="email"/></td>
+						<td><form:input path="email"/>
+						
+					</tr>
+					<tr>
+						<td><label>Importance:</label></td>
+						<td>
+							<form:select path="importance">
+								<form:options items="${customer.importanceOptions}"/>
+							</form:select>
+						</td>
 					</tr>
 					<tr>
 						<td><label></label></td>

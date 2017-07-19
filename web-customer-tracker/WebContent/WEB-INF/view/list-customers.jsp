@@ -38,6 +38,7 @@
 						<th>First Name</th>
 						<th>Last Name</th>
 						<th>Email</th>
+						<th>Importance</th>
 						<th>Action</th>
 					</tr>
 					
@@ -57,11 +58,12 @@
 							<td> ${tempCustomer.firstName} </td>
 							<td> ${tempCustomer.lastName} </td>
 							<td> ${tempCustomer.email} </td>
+							<td> ${tempCustomer.importance} </td>
 							<td>
 								<!-- display the update link -->
 								<a href="${updateLink}">Update</a>
 								|
-								<a href="${deleteLink}" onclick="if(!(confirm('Are you sure ?'))) return false">Delete</a>
+								<a href="${deleteLink}" onclick="if(!(confirm('Confirm to delete this client'))) return false">Delete</a>
 								
 							</td>
 						</tr>

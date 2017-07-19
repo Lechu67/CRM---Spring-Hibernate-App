@@ -1,5 +1,8 @@
 package com.finalproject.springdemo.entity;
 
+
+import java.util.LinkedHashMap;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,21 +30,40 @@ public class Customer {
 	@Column(name="email")
 	private String email;
 	
+	@Column(name="importance")
+	private String importance;
+	
+	private LinkedHashMap<String,String> importanceOptions;
+	
+	
 	public Customer () {
+		importanceOptions = new LinkedHashMap<>();
+		importanceOptions.put("High","High");
+		importanceOptions.put("Low","Low");
 		
 	}
-	public Customer (int theId, String theFirstName, String theLastName, String theEmail){
+	public Customer (int theId, String theFirstName, String theLastName, String theEmail, String importance){
 		
 		super();
 		this.id = theId;
 		this.firstName= theFirstName;
 		this.lastName=theLastName;
 		this.email=theEmail;
+		this.importance=importance;
+		importanceOptions = new LinkedHashMap<>();
+		importanceOptions.put("High","High");
+		importanceOptions.put("Low","Low");
 	}
+	
 	
 	@Override
 	public String toString() {
-		return "Customer [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + "]";
+		return "Customer [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
+				+ ", importance=" + importance + "]";
+	}
+	
+	public LinkedHashMap<String, String> getImportanceOptions() {
+		return importanceOptions;
 	}
 	public int getId(){
 		return id;
@@ -49,7 +71,12 @@ public class Customer {
 	public void setId(int theId){
 		this.id = theId;
 	}
-	
+	public String getImportance() {
+		return importance;
+	}
+	public void setImportance(String importance) {
+		this.importance = importance;
+	}
 	public String getFirstName() {
 		return firstName;
 	}
