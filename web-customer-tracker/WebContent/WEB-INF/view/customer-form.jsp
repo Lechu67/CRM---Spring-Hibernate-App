@@ -46,7 +46,8 @@
 						<td><label>Importance:</label></td>
 						<td>
 							<form:select path="importance">
-								<form:options items="${customer.importanceOptions}"/>
+								<form:option value="NONE" label="--- Select ---"/>
+								<form:options items="${importanceOptions}"/>
 							</form:select>
 						</td>
 					</tr>
