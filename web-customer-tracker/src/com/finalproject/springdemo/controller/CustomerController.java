@@ -1,6 +1,9 @@
 package com.finalproject.springdemo.controller;
 
+import java.util.LinkedHashMap;
 import java.util.List;
+
+import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,6 +25,18 @@ public class CustomerController {
 	@Autowired
 	private CustomerService customerService;
 	
+	//private LinkedHashMap<String, String> importanceOptions;
+	
+	//populate the dropdown list after the object is constructed
+	
+	/*@PostConstruct
+	public void loadDataInDropDownList(){
+		
+		importanceOptions = new LinkedHashMap<>();
+		importanceOptions.put("High","High");
+		importanceOptions.put("Low","Low");
+	}*/
+	
 	@GetMapping("/list")
 	public String listCustomers (Model model){
 		
@@ -40,6 +55,9 @@ public class CustomerController {
 		
 		model.addAttribute("customer", theCustomer);
 		
+		 // add options to model
+	    model.addAttribute("importanceOptions", customerService.getImportanceOptions());
+	    
 		return "customer-form";
 	}
 	

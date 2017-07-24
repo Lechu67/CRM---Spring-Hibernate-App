@@ -1,8 +1,8 @@
 package com.finalproject.springdemo.entity;
 
 
-import java.util.LinkedHashMap;
-import java.util.Map;
+
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,7 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Transient;
+//import javax.persistence.Transient;
 
 
 
@@ -35,14 +35,18 @@ public class Customer {
 	@Column(name="importance")
 	private String importance;
 	
-	@Transient
-	private LinkedHashMap<String,String> importanceOptions;
+	/*one way to implement the Dropdown list(not fancy):
+	 * in the entity class create a field with a Map, then mark it Transcient(ignored by hibernate)
+	 * create the setter method
+	 * populate the map in both contructors
+	 * update the html form
 	
+	@Transient //ALL FIELDS IN HIBERNATE ENTITY CLASS ARE TAKEN BY DEFAULT AS COLUMNS, "TRANSCIENT" IGNORE THIS FIELD
+	private LinkedHashMap<String,String> importanceOptions;
+	*/
 	
 	public Customer () {
-		importanceOptions = new LinkedHashMap<>();
-		importanceOptions.put("High","High");
-		importanceOptions.put("Low","Low");
+		
 		
 	}
 	public Customer (int theId, String theFirstName, String theLastName, String theEmail, String importance){
@@ -53,9 +57,7 @@ public class Customer {
 		this.lastName=theLastName;
 		this.email=theEmail;
 		this.importance=importance;
-		importanceOptions = new LinkedHashMap<>();
-		importanceOptions.put("High","High");
-		importanceOptions.put("Low","Low");
+		
 	}
 	
 	
@@ -65,9 +67,7 @@ public class Customer {
 				+ ", importance=" + importance + "]";
 	}
 	
-	public LinkedHashMap<String, String> getImportanceOptions() {
-		return importanceOptions;
-	}
+	
 	public int getId(){
 		return id;
 	}

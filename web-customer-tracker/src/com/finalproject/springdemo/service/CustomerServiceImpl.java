@@ -1,6 +1,7 @@
 package com.finalproject.springdemo.service;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.transaction.Transactional;
 
@@ -17,6 +18,11 @@ public class CustomerServiceImpl implements CustomerService {
 	private CustomerDAO customerDAO;
 	
 	
+	@Override
+	@Transactional
+	public Map<String, String> getImportanceOptions() {
+		return customerDAO.getImportantOptions();
+	}
 	@Override
 	@Transactional
 	public List<Customer> getCustomers() {

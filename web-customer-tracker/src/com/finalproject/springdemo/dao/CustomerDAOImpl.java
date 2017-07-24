@@ -1,6 +1,8 @@
 package com.finalproject.springdemo.dao;
 
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.Query;
 
@@ -62,7 +64,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 		
 	}
 	/*
-	 * Another approach of Chad, using only one DB operation.
+	 * Another approach from Chad for deleteCustomer, using only one DB operation.
 	 * 
 	@Override
 	public void deleteCustomer2(int theId) {
@@ -76,4 +78,15 @@ public class CustomerDAOImpl implements CustomerDAO {
 		
 	}
 	*/
+
+
+	@Override
+	public Map<String, String> getImportantOptions() {
+		
+		LinkedHashMap<String, String>importanceOptions = new LinkedHashMap<>();
+		importanceOptions.put("High","High");
+		importanceOptions.put("Low","Low");
+		
+		return importanceOptions;
+	}
 }
