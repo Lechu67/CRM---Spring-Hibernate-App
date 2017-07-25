@@ -4,7 +4,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.persistence.Query;
+
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -79,7 +79,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 	}
 	*/
 
-
+	//the right way to implement the dropdown list - creating service + DAO methods
 	@Override
 	public Map<String, String> getImportantOptions() {
 		
