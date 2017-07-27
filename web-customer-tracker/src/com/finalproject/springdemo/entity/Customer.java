@@ -1,9 +1,5 @@
 package com.finalproject.springdemo.entity;
 
-
-
-
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

@@ -79,6 +79,7 @@ public class CustomerController {
 		Customer theCustomer = customerService.getCustomer(theId);
 		//set the customer as a model attribute to pre=populate the form
 		model.addAttribute("customer", theCustomer);
+		model.addAttribute("importanceOptions", customerService.getImportanceOptions());
 		//send over to the form
 		return "customer-form";
 	}
