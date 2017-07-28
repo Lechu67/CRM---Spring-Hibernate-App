@@ -36,7 +36,7 @@
 				
 				<form:form action="search" method="POST">
 					Search customer: <input type="text" name="theSearchName" />
-					<input type="submit" value="Search" class="add-buttom" />
+					<input type="submit" value="Search" class="add-button" />
 				</form:form>
 				
 				<!-- ADD OUR HTML TABLE HERE -->
