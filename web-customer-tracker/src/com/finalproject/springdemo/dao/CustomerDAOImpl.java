@@ -5,9 +5,10 @@ import java.util.List;
 import java.util.Map;
 
 
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
+import org.hibernate.query.criteria.internal.compile.CriteriaQueryTypeQueryAdapter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -89,4 +90,25 @@ public class CustomerDAOImpl implements CustomerDAO {
 		
 		return importanceOptions;
 	}
+
+
+	@Override
+	public List<Customer> searchCustomers(String theName) {
+		
+		Session session = sessionFactory.getCurrentSession();
+		Query theQuery = null;
+		if (theName !=null && theName.trim().length()>0){
+		theQuery = session.createQuery("from Customer where lower(firstName) like:theName or lower(lastName) like:theName",Customer.class);
+		theQuery.setParameter("theName", "%"+theName.toLowerCase()+"%");
+		}
+		else{
+			theQuery=session.createQuery("from Customer",Customer.class);
+		}
+		List<Customer> customers = theQuery.getResultList();
+		
+		return customers;
+	}
+
+
+	
 }

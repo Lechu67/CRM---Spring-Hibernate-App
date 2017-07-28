@@ -16,4 +16,8 @@ public interface CustomerDAO {
 	public void deleteCustomer(int theId);
 
 	public Map<String, String> getImportantOptions();
+
+	public List<Customer> searchCustomers(String theName);
+
+	
 }

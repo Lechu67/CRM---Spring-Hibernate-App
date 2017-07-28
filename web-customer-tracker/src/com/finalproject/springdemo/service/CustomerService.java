@@ -17,4 +17,6 @@ public interface CustomerService {
 
 	public Map<String, String> getImportanceOptions();
 
+	public List<Customer> searchCustomers(String theName);
+
 }

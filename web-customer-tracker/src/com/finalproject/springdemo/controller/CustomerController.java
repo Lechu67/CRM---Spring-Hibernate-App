@@ -91,5 +91,17 @@ public class CustomerController {
 		//return form list
 		return "redirect:/customer/list";
 	}
+	@PostMapping("/search")
+	public String searchCustomer(@RequestParam("theSearchName")String theName, Model model){
+		
+		//search customer from service 
+		List<Customer> customers = customerService.searchCustomers(theName);
+		
+		//add the customers to the model
+		model.addAttribute("customers", customers);
+		return "list-customers";
+	}
+		
+	
 
 }
